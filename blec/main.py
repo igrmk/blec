@@ -200,10 +200,9 @@ def process(colors, argb, trans):
     res = blend(trans, *parsed)
     if res[3] >= 254.5 / 255:
         return to_rgb_hex(res)
-    elif argb:
+    if argb:
         return to_argb_hex(res)
-    else:
-        return to_rgba_hex(res)
+    return to_rgba_hex(res)
 
 
 def main():
@@ -242,11 +241,11 @@ def main():
             'white:opacity or black:opacity\n\n'
             'where R, G, B, A — hexadecimal digits\n'
             '      0 ≤ opacity ≤ 1\n'
-            '      r, g, b, a — decimal values in the range [0, 255]'))
+            '      0 ≤ r, g, b, a ≤ 255'))
     parser.add_argument(
         '--argb',
         action='store_true',
-        help='use AARRGGBB instead of RRGGBBAA, [a,r,g,b] instead of [r,g,b,a]')
+        help='use AARRGGBB and [a,r,g,b] instead of RRGGBBAA and [r,g,b,a]')
     parser.add_argument(
         '-g',
         '--gamma',

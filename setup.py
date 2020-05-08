@@ -9,7 +9,7 @@ def read(rel_path):
 
 
 def get_version():
-    for line in read('blec/main.py').splitlines():
+    for line in read('blec/_version.py').splitlines():
         if line.startswith('__version__'):
             return line.split("'")[1]
     raise Exception()

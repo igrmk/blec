@@ -2,8 +2,7 @@ import sys
 import re
 import argparse
 import math
-
-__version__ = '1.0.1'
+from _version import __version__
 
 HEX_SHORT_RE = re.compile('^[0-9A-Fa-f]{3}(?::\\d+(?:\\.\\d+)?)?$')
 HEX_COMP3_RE = re.compile('^[0-9A-Fa-f]{6}(?::\\d+(?:\\.\\d+)?)?$')

@@ -143,10 +143,6 @@ def blend_comp(trans, dst, src, dst_a, src_a, out_a):
     return out
 
 
-def clamp(value):
-    return min(int(round(value)), 255)
-
-
 def blend(trans, *colors):
     if not colors:
         return (0, 0, 0, 0)
@@ -186,7 +182,7 @@ def parse_color(argb, str_):
 
 def parse_and_check_color(argb, str_):
     color = parse_color(argb, str_)
-    if any(comp > 255 for comp in color):
+    if any(comp > 1.0 for comp in color):
         raise Exception('color is out of range ' + str_)
     return color
 

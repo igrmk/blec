@@ -1,0 +1,4 @@
+[MASTER]
+disable = C0111, R0913, W0703, R0911
+[FORMAT]
+good-names = r, g, b, a, s, x, to

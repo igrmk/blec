@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import sys
 import re
 import argparse
@@ -246,7 +248,7 @@ def main():
         '-g',
         '--gamma',
         metavar='GAMMA',
-        help='floating number of "sRGB" (default)',
+        help='floating number or "sRGB" (default) or "AdobeRGB"',
         default='sRGB',
         type=str)
     parser.add_argument(
@@ -269,6 +271,8 @@ def main():
             sys.exit(0)
         if args.gamma == 'sRGB':
             gamma = Srgb()
+        elif args.gamma == 'AdobeRGB':
+            gamma = PowerLaw(2.19921875)
         else:
             try:
                 gamma = float(args.gamma)

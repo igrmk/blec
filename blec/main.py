@@ -5,12 +5,13 @@ import re
 import argparse
 import math
 
-__version__ = '1.1.1'
+__version__ = '1.1.2'
 
-HEX_SHORT_RE = re.compile('^[0-9A-Fa-f]{3}(?::\\d+(?:\\.\\d+)?)?$')
-HEX_COMP3_RE = re.compile('^[0-9A-Fa-f]{6}(?::\\d+(?:\\.\\d+)?)?$')
+OPACITY = "(:\\d+(\\.\\d+)?|:\\.\\d+|:\\d+\\.)?"
+HEX_SHORT_RE = re.compile(f'^[0-9A-Fa-f]{{3}}{OPACITY}$')
+HEX_COMP3_RE = re.compile(f'^[0-9A-Fa-f]{{6}}{OPACITY}$')
 HEX_COMP4_RE = re.compile('^[0-9A-Fa-f]{8}$')
-DEC_COMP3_RE = re.compile('^\\[\\d+(,\\d+){2}\\](?::\\d+(?:\\.\\d+)?)?$')
+DEC_COMP3_RE = re.compile(f'^\\[\\d+(,\\d+){{2}}\\]{OPACITY}$')
 DEC_COMP4_RE = re.compile('^\\[\\d+(,\\d+){3}\\]$')
 
 STD_COLORS = {
@@ -18,10 +19,7 @@ STD_COLORS = {
     'black': (0.0, 0.0, 0.0),
 }
 
-STD_COLORS_RE = re.compile(
-    '^' +
-    '|'.join(STD_COLORS) +
-    '(?::\\d+(?:\\.\\d+)?)?$')
+STD_COLORS_RE = re.compile('^' + '|'.join(STD_COLORS) + OPACITY + '$')
 
 
 class PowerLaw:

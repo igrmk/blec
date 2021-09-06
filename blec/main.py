@@ -5,7 +5,7 @@ import re
 import argparse
 import math
 
-__version__ = '1.1.3'
+__version__ = '1.1.4'
 
 OPACITY = "(:\\d+(\\.\\d+)?|:\\.\\d+|:\\d+\\.)?"
 HEX_SHORT_RE = re.compile(f'^[0-9A-Fa-f]{{3}}{OPACITY}$')
@@ -261,12 +261,12 @@ def main():
     args = parser.parse_args()
     if args.version:
         print(__version__)
-        sys.exit(0)
+        return 0
     try:
         if args.parse:
             parsed = parse(args.colors, args.argb)
             print(' '.join(str(p) for p in parsed))
-            sys.exit(0)
+            return 0
         if args.gamma == 'sRGB':
             gamma = Srgb()
         elif args.gamma == 'AdobeRGB':
@@ -282,8 +282,4 @@ def main():
         print(process(args.colors, args.argb, gamma))
     except Exception as err:
         print("error: " + str(err), file=sys.stderr)
-        sys.exit(1)
-
-
-if __name__ == '__main__':
-    main()
+        return 1

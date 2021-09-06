@@ -1,5 +1,9 @@
 blec: alpha blending calculator
 ===============================
+
+<!-- cut -->
+[![Version](https://img.shields.io/pypi/v/blec.svg)](https://pypi.org/project/blec/)
+<!-- end -->
 This is a tool to calculate a resulting color of the alpha blending process.
 A gamma correction is enabled and the default transfer function is the one defined in sRGB.
 

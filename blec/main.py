@@ -5,7 +5,7 @@ import re
 import argparse
 import math
 
-__version__ = '1.1.2'
+__version__ = '1.1.3'
 
 OPACITY = "(:\\d+(\\.\\d+)?|:\\.\\d+|:\\d+\\.)?"
 HEX_SHORT_RE = re.compile(f'^[0-9A-Fa-f]{{3}}{OPACITY}$')

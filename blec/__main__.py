@@ -1,3 +1,3 @@
 import sys
-from .main import main
-sys.exit(main())
+from ._main import _main
+sys.exit(_main())

@@ -1,11 +1,8 @@
-#!/usr/bin/python3
-
 import sys
 import re
 import argparse
 import math
-
-__version__ = '1.1.4'
+from .__version__ import __version__
 
 OPACITY = "(:\\d+(\\.\\d+)?|:\\.\\d+|:\\d+\\.)?"
 HEX_SHORT_RE = re.compile(f'^[0-9A-Fa-f]{{3}}{OPACITY}$')
@@ -201,7 +198,7 @@ def process(colors, argb, trans):
     return to_rgba_hex(res)
 
 
-def main():
+def _main():
     def formatter_class(prog):
         return argparse.RawTextHelpFormatter(
             prog,
